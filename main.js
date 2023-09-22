@@ -35,6 +35,13 @@ function getInputHandler() {
       welcomeScreen.style.display = "none";
     }, 900);
 
+    const inputNumber = getInputNumber();
+
+    if(inputNumber < 1){
+      alert('More then 0.');
+      return;
+    }
+
     getPokemonNameArray();
   });
 }
