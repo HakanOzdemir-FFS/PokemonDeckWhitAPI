@@ -1,0 +1,66 @@
+.pokemon-class-filter {
+  width: 180rem;
+  margin: 5rem auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__class {
+    width: 17rem;
+    border-radius: 10rem;
+    padding: 0.3rem 2rem;
+    margin: 1rem 0 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+    font-family: Roboto, sans-serif;
+    border: 1px solid black;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 1rem 3rem rgba($color-black, 0.4);
+      transform: scale(0.9);
+    }
+
+    &:active {
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.6);
+      transform: scale(0.9) translateY(0.2rem);
+    }
+
+    &__type-name {
+      color: $color-black;
+      font-size: 1.6rem;
+    }
+
+    &__img-box {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+      border: 1px solid $color-white;
+
+      &--img {
+        width: 6rem;
+        height: auto;
+      }
+    }
+  }
+}
+
+.search-box {
+  margin-top: 2rem;
+  text-align: center;
+
+  &__input {
+    padding: 1.5rem 3rem;
+    border-radius: 10rem;
+    font-weight: 800;
+
+    &::placeholder{
+      font-weight: 800;
+    }
+  }
+}

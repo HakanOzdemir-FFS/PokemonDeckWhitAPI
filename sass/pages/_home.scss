@@ -1,0 +1,107 @@
+.pokemon-card-container {
+  width: 180rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5rem;
+  row-gap: 5rem;
+  column-gap: 7rem;
+
+  &__card {
+    width: 25rem;
+    height: 35rem;
+    position: relative;
+    perspective: 1500px;
+    backface-visibility: hidden;
+    border-radius: 5rem;
+    background-color: transparent;
+    transition: all .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &__back {
+      width: 100%;
+      height: 100%;
+      border-radius: 5rem;
+      @include absoulteCenter;
+      transform: translate(-50%, -50%) rotateY(180deg);
+      background-color: aqua;
+      backface-visibility: hidden;
+      transition: all 1s;
+      box-shadow: 0 2rem 5rem rgba($color-black, 0.4rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h3{
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 2rem;
+        color: $color-white;
+      }
+
+      &__strong,&__powerless {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 15rem;
+        flex-wrap: wrap;
+      }
+
+    }
+
+    &__front {
+      width: 100%;
+      height: 100%;
+      background-color: $color-elektric-type;
+      border-radius: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, 0.2rem);
+      backface-visibility: hidden;
+      transition: all 1s;
+
+      &__img-box {
+        display: flex;
+        align-items: center;
+      }
+
+      &__img {
+        width: 12rem;
+        height: 12rem;
+        text-align: center;
+        transition: all 0.2s;
+      }
+
+      &__stats {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        font-size: 1.6rem;
+        font-weight: 300;
+        align-items: flex-start;
+        text-align: start;
+
+        div {
+          align-self: center;
+          transform: scale(0.7);
+        }
+      }
+    }
+  }
+}
+.active-back {
+  transform: translate(-50%, -50%) rotateY(360deg);
+}
+
+.active-front {
+  transform: rotateY(180deg);
+}

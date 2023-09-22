@@ -1,0 +1,104 @@
+.loading{
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: 2;
+  background-color: white;
+
+  &__head{
+    @include absoulteCenter;
+    top: 80%;
+    font-size: 10rem;
+    white-space: nowrap;
+    &2{
+      top: 90%;
+    }
+  }
+
+  &__container{
+    @include absoulteCenter;
+    width: 50rem;
+    height: 50rem;
+    background-color: $color-ball-black;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2.5rem solid  $color-ball-black;;
+    animation: spinContainer 7s infinite ease-in-out;
+
+    &__white,&__red{
+      position: absolute;
+      transform: translate(-50%,-50%);
+      width: 60rem;
+      height: 25rem;
+      z-index: 3;
+    }
+    &__white{
+      background-color: $color-ball-white;
+      bottom:  -25%;
+      left: 50%;
+    }
+    &__red{
+      background-color: $color-ball-red;
+      top: 25%;
+      left: 50%;
+    }
+
+    &__line{
+      position: absolute;
+      width: 50rem;
+      height: 2.5rem;
+      background-color: $color-ball-black;
+      z-index: 4;
+      top: 47.5%;
+      left: 0;
+    }
+
+    &__middle-circle{
+      @include absoulteCenter;
+      z-index: 4;
+      animation: scaleDot 1s alternate infinite ease-in-out;
+
+      &--big{
+        @include absoulteCenter;
+        width: 15rem;
+        height: 15rem;
+        border: 2.5rem solid $color-ball-black;
+        border-radius: 50%;
+      }
+      &--medium{
+        @include absoulteCenter;
+        width: 10rem;
+        height: 10rem;
+        border: 2.5rem solid $color-ball-white;
+        border-radius: 50%;
+        
+      }
+      &--small{
+        width: 10rem;
+        height: 10rem;
+        background-color:  $color-ball-black;
+        border-radius: 50%;
+        
+        
+      }
+    }
+  }
+}
+
+@keyframes spinContainer{
+  from{
+    transform: translate(-50%,-50%) rotate(0deg);
+  }
+  to{
+    transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+@keyframes scaleDot{
+  from{
+    transform: translate(-50%,-50%) scale(.7);
+  }
+  to{
+    transform: translate(-50%,-50%) scale(1);
+  }
+}

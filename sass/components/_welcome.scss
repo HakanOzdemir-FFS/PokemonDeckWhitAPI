@@ -1,0 +1,46 @@
+.welcome {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $color-ball-red;
+  z-index: 2;
+
+  &__center {
+    @include absoulteCenter;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__text {
+      font-size: 6rem;
+    }
+    &__input {
+      margin: 5rem 0;
+      padding: 1.5rem 3rem;
+      width: 60rem;
+      border: none;
+      background-color: $color-ball-white;
+      border-radius: 50rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    &__button {
+      border: 1px solid $color-ball-white;
+      border-radius: 50rem;
+      width: 20rem;
+      height: 5rem;
+      font-size: 2rem;
+      font-weight: 800;
+      box-shadow: 0 1rem 1rem $color-ball-black;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:active {
+        transform: translateY(3px);
+        box-shadow: 0 0.5rem 0.5rem $color-ball-black;
+      }
+    }
+  }
+}

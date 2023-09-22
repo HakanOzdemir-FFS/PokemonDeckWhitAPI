@@ -1,0 +1,17 @@
+@keyframes getDown {
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(1000rem);
+  }
+}
+
+@keyframes getUp {
+  from{
+    transform: translateY(-50rem);
+  }
+  to{
+    transform: translateY(0);
+  }
+}

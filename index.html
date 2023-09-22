@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poke Decks</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div id="loadingScreen" class="loading">
+      <div class="loading__container">
+        <div class="loading__container__white"></div>
+        <div class="loading__container__red"></div>
+        <div class="loading__container__line"></div>
+        <div class="loading__container__middle-circle">
+          <div class="loading__container__middle-circle--big"></div>
+          <div class="loading__container__middle-circle--small"></div>
+          <div class="loading__container__middle-circle--medium"></div>
+        </div>
+      </div>
+      <h1 data-text="Pokemons Loading" class="heading-primary loading__head">
+        Pokemons Loading
+      </h1>
+      <h1
+        data-text="Please Wait"
+        class="heading-primary loading__head loading__head2"
+      >
+        Please Wait
+      </h1>
+      <br />
+    </div>
+
+    <div id="welcomeScreen" class="welcome">
+      <div class="welcome__center">
+        <h1
+          class="heading-primary welcome__center__text"
+          data-text="Please write how many pokemon you want"
+        >
+          Please write how many pokemon you want
+        </h1>
+        <input id="wantPokemon" placeholder="Input Here Only Number" type="number" class="welcome__center__input" />
+        <button id="welcome-btn" class="welcome__center__button">
+          Get
+        </button>
+      </div>
+     
+    </div>
+
+    <template id="poke-card-template">
+      <div class="pokemon-card-container__card">
+        <div class="pokemon-card-container__card__front">
+          <div class="pokemon-card-container__card__front__img-box">
+            <img
+              class="pokemon-card-container__card__front__img"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/25.png"
+              alt="pikachu"
+            />
+            <div class="pokemon-class-filter__class__img-box">
+              <img
+                class="pokemon-class-filter__class__img-box--img"
+                src="img/type/electric-type.png"
+                alt="darkType"
+              />
+            </div>
+          </div>
+          <div class="pokemon-card-container__card__front__stats">
+            <h3
+              class="heading-tertiary pokemon-card-container__card__front__stats__name"
+            >
+              Pikachu
+            </h3>
+            <span class="pokemon-card-container__card__front__stats__healt"
+              >Healt Point: 35</span
+            >
+            <span class="pokemon-card-container__card__front__stats__atack"
+              >Atack: 55</span
+            >
+            <span class="pokemon-card-container__card__front__stats__defense"
+              >Defense: 40</span
+            >
+            <span class="pokemon-card-container__card__front__stats__speed"
+              >Speed: 90</span
+            >
+          </div>
+        </div>
+        <div class="pokemon-card-container__card__back">
+          <h3>STRONG</h3>
+          <div
+            id="strong"
+            class="pokemon-card-container__card__back__strong"
+          ></div>
+          <h3>POWERLESS</h3>
+          <div
+            id="powerless"
+            class="pokemon-card-container__card__back__powerless"
+          ></div>
+        </div>
+      </div>
+    </template>
+
+    <h1 data-text="Pokemon Decks" class="heading-primary">Pokemon Decks</h1>
+
+    <main>
+      <div class="pokemon-class-filter">
+        <button class="pokemon-class-filter__class" data-type="dark">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/dark-type.png"
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Dark Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="electric">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/electric-type.png"
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Elektric Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="fairy">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/fairy-type.png"
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Fairy Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="fighting">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/Fighting-type.png"
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Fighting Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="ground">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/ground-type.png"
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Ground Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="ice">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/ice-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Ice Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="poison">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/poison-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Poison Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="psychic">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/Psychic-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Psychic Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="rock">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/rock-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Rock Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="steel">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/steel-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Steel Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="water">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/water-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Water Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="normal">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/normal-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Normal Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="grass">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/grass-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Grass Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="fire">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/fire-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Fire Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="flying">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/flying-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Flying Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="dragon">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/dragon-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name"
+            >Dragon Type</span
+          >
+        </button>
+        <button class="pokemon-class-filter__class" data-type="bug">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/bug-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Bug Type</span>
+        </button>
+        <button class="pokemon-class-filter__class" data-type="ghost">
+          <div class="pokemon-class-filter__class__img-box">
+            <img
+              class="pokemon-class-filter__class__img-box--img"
+              src="img/type/ghost-type.png "
+              alt="darkType"
+            />
+          </div>
+          <span class="pokemon-class-filter__class__type-name">Ghost Type</span>
+        </button>
+      </div>
+
+      <section id="pokemon-app" class="pokemon-card-container"></section>
+    </main>
+  </body>
+</html>
